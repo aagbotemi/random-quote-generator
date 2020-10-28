@@ -5,10 +5,7 @@ import './App.css';
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false);
-  const [quotes, setQuote] = useState({
-    text: '',
-    author: ''
-  });
+  const [allQuote, setAllQuote] = useState([]);
 
   const API_URL = "https://type.fit/api/quotes";
   
@@ -20,7 +17,7 @@ function App() {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setQuote(data)
+        setAllQuote(data)
         console.log(data);
       } catch (error) {
         setIsError(true);
@@ -34,9 +31,8 @@ function App() {
 
   const randomQuote = () => {
     //get random numbers
-    const randomNumber = Math.floor(Math.random() * quotes.length)
-    return quotes[randomNumber]
-
+    const randomNumber = Math.floor(Math.random() * allQuote.length);
+    return allQuote[randomNumber];
   }
 
   // const shuffleQuotes = (array) => {
@@ -46,7 +42,7 @@ function App() {
   const handleClick = () => {
     //generate different quote function
     const generateRandomQuote = randomQuote();
-    setQuote({
+    setAllQuote({
       text: generateRandomQuote.text,
       author: generateRandomQuote.author
     });
@@ -103,8 +99,8 @@ function App() {
           <QuoteAuthor
             //displayColor={randomColor}
             handleClick={handleClick}
-            {...quotes}
-            quotes={ quotes }
+            {...allQuote}
+            allQuote={ allQuote }
           />
 
         </main>

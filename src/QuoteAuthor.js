@@ -1,11 +1,11 @@
 import React from 'react'
 
-const QuoteAuthor = ({ displayColor, handleClick, quotes }) => {
+const QuoteAuthor = ({ displayColor, handleClick, allQuote }) => {
     //const randomColor = displayColor();
     //const html = document.documentElement;
     //html.style.backgroundColor = randomColor;
 
-    const { text, author } = quotes;
+    const { text, author } = allQuote;
     
     return (
         <article style={{ backgroundColor: "white" }} className="quotebox">
@@ -30,7 +30,7 @@ const QuoteAuthor = ({ displayColor, handleClick, quotes }) => {
 
             <button
                 onClick={() => {
-                    window.open('https://twitter.com/intent/tweet/?text=' + encodeURIComponent(quotes.text + '~~' + quotes.author))
+                    window.open('https://twitter.com/intent/tweet/?text=' + encodeURIComponent(allQuote.text + '~~' + allQuote.author))
                 }}
                 type="submit"> Tweet Quote
             </button>
