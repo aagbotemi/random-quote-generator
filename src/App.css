@@ -1,9 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Raleway&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-color:#0a223d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+  text-align: center;
+  margin: 2rem 0 0.5rem;
+  color: #dd383a;;
+}
+.quotebox {
+  background-color:#def;
+  width: 500px;
+  padding-top: 0.7rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 3px rgba(70, 70, 70, 0.45);
+}
+@media only screen and (max-width: 500px) {
+  .quotebox {
+    width: 90%;
+    margin: auto;
+  }
+}
+.quote {
+  font-family: 'Kurale', serif;
+  margin: 0px 20px;
+  font-size: 1.5rem;
+  color: rgb(235, 176, 15);
+}
+.fadeIn {
+  opacity: 0;
+  display: block;
+  animation: slidein 1s ease-out forwards;
+}
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.author {
+  color: #1dbb86;
+  margin: 20px;
+  font-family: 'Kurale', serif;
+  font-size: 1.2rem;
+  text-align: right;
+  font-style: italic;
+}
+.quoteButton {
+  display: flex;
+  justify-content: space-between;
+}
+.newQuote, .tweetQuote {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  color: white;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  box-shadow: 1px 1px 5px 3px rgba(114, 114, 114, 0.45);
+  cursor: pointer;
+}
+.newQuote {
+  background-color: #dd383a;
+  font-size: 1rem;
+}
+.tweetQuote {
+  background-color: #0084b4;
+  padding: 10px 30px;
+}
 /***** CSS Loader *****/
 .loader {
   position: absolute;
@@ -28,4 +109,13 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/***** Error Message ******/
+.error {
+  margin-top: 2.5rem;
+  color: #33e6aa;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
